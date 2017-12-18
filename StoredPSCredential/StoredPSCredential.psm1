@@ -1,6 +1,6 @@
 ﻿function Read-StoredCredentialList{
     Param()
-    (Get-Item HKCU:\Software\Microsoft\Windows\PowerShell\Creds).GetValueNames()
+    Get-Item HKCU:\Software\Microsoft\Windows\PowerShell\Creds -ErrorAction SilentlyContinue | % { $_.GetValueNames() }
 }
 
 function Get-StoredCredential {
